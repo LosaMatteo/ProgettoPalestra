@@ -351,6 +351,7 @@ class ViewHomeAdmin(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.controller_attrezzo.recupera_attrezzi_salvati()
         self.controller_messaggio.recupera_messaggi()
         self.visualizza_messaggi()
         self.carica_attrezzi()

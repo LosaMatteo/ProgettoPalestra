@@ -10,7 +10,6 @@ from Orario.Controller.ControllerOrario import ControllerOrario
 from PreferenzaEsercizi.Controller.ControllerPreferenzaEsercizi import ControllerPreferenzaEsercizi
 from Prenotazione.Controller.ControllerPrenotazione import ControllerPrenotazione
 from Allenamento.Controller.ControllerAllenamento import ControllerAllenamento
-from Attrezzo.Controller.ControllerAttrezzo import ControllerAttrezzo
 
 
 class ViewLogin(object):
@@ -21,7 +20,6 @@ class ViewLogin(object):
     controller_dieta = ControllerDieta()
     controller_prenotazione = ControllerPrenotazione()
     controller_allenamento = ControllerAllenamento()
-    controller_attrezzo = ControllerAttrezzo()
     objMetodi = Metodi()
     lista_accessi = []
     credenziali_admin = dict()
@@ -95,7 +93,6 @@ class ViewLogin(object):
         datiaccesso = self.login_check()
         if datiaccesso != 0:
             if datiaccesso[0] == 0:
-                self.controller_attrezzo.recupera_attrezzi_salvati()
                 self.open_view_admin(datiaccesso[1])
                 self.view_login.close()
             elif datiaccesso[0] == 1:
