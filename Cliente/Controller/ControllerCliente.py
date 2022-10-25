@@ -30,12 +30,12 @@ class ControllerCliente(object):
     def get_cliente_autenticazione(self, id):
         return self.model.get_cliente_autenticazione(id)
 
-    def rimuovi_cliente(self, username):
+    def rimuovi_vecchio_cliente(self, username):
         self.model.rimuovi_cliente(username, self.percorso)
 
-    def elimina_cliente(self, username):
+    def elimina_cliente_conferma(self, username):
         if self.objMetodi.show_popup_question("Sei sicuro di voler eliminare il cliente?"):
-            self.model.elimina_cliente(username, self.percorso)
+            self.model.rimuovi_cliente(username, self.percorso)
 
     def get_psw_cliente(self):
         return self.model.get_psw_cliente()

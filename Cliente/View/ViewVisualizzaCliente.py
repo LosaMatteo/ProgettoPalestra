@@ -45,7 +45,7 @@ class ViewVisualizzaCliente(object):
                         oggetto_cliente.abbonamento.tipo_di_abbonamento == self.cmbTipoAbbonamento.currentText():
                     self.objMetodi.show_popup_exception("Nessun campo modificato.")
                 else:
-                    self.controller.rimuovi_cliente(self.username)
+                    self.controller.rimuovi_vecchio_cliente(self.username)
                     oggetto_cliente.nome = self.txtNome.text()
                     oggetto_cliente.cognome = self.txtCognome.text()
                     oggetto_cliente.sesso = self.cmbSesso.currentText()
@@ -77,7 +77,7 @@ class ViewVisualizzaCliente(object):
 
     def rimuovi_cliente(self):
         try:
-            self.controller.elimina_cliente(self.username)
+            self.controller.elimina_cliente_conferma(self.username)
             self.pulisci_caselle()
             self.view_visualizza_cliente.close()
         except(Exception):

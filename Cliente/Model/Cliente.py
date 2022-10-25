@@ -46,10 +46,6 @@ class Cliente(object):
     def scrivi_lista_clienti(self, percorso):
         self.objMetodi.scrivi_su_file(percorso, self.lista_clienti)
 
-    def elimina_cliente(self, stringa_da_eliminare, percorso):
-        self.objMetodi.rimuovi_dalla_lista(stringa_da_eliminare, self.lista_clienti)
-        self.scrivi_lista_clienti(percorso)
-
     def set_abbonamento_cliente(self, cliente, abbonamento):
         cliente.abbonamento = abbonamento
 
