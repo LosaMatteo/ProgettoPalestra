@@ -8,6 +8,3 @@ class ControllerAbbonamento(object):
     def aggiungi_abbonamento_cliente(self, abbonamento):
         self.model.aggiungi_abbonamento(abbonamento)
 
-    def get_abbonamento_cliente(self):
-        self.model.get_abbonamento()
-
