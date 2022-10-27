@@ -49,8 +49,7 @@ class ControllerDieta(object):
         return weight
 
     def calcola_bmi(self, altezza, peso):
-        bmi = peso / (altezza * altezza)
-        return bmi
+        return self.model.calcola_BMI(altezza, peso)
 
     def calcolo_ads(self, lavoro, attivita_fisica):
         if lavoro == "Lavori edile" or lavoro == "Lavori agricoli" or lavoro == "Operaio/a(pesante)":
