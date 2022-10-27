@@ -82,12 +82,6 @@ class ControllerDieta(object):
             vettore_risposte.append(fabbisogno_calorico)
             return vettore_risposte
 
-    def crea_oggetto_dieta(self, username, bmi, peso_ideale, fabbisogno, segnalazioni):
-        info_dieta = Dieta(username, bmi, peso_ideale, fabbisogno, segnalazioni)
-        if self.model.controlla_ridondanza(username):
-            self.model.rimuovi_info_dieta(username, self.percorso_info)
-        self.model.aggiungi_info_dieta(info_dieta, self.percorso_info)
-
     def popola_lista_diete(self):
         return self.model.popola_lista_diete()
 
