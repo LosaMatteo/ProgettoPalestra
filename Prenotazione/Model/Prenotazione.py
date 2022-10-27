@@ -62,13 +62,6 @@ class Prenotazione(object):
                     self.lista_prenotazioni.remove(elem)
             self.scrivi_lista_prenotazioni(percorso)
 
-    def get_cliente_prenotazione(self, utente):
-        vettore_risposta = []
-        for elem in self.lista_prenotazioni:
-            if elem.username == utente:
-                vettore_risposta.append(elem)
-        return vettore_risposta
-
     def confronta_data_prenotazioni(self, prenotazione1, prenotazione2):
         if prenotazione1.username == prenotazione2.username and \
                 prenotazione1.data.toString("dd/MM/yyyy") == prenotazione2.data.toString("dd/MM/yyyy") and \
