@@ -20,7 +20,6 @@ class ViewVisualizzaStaff(object):
         self.txtMansione.setText(oggetto_personale.mansione)
 
     def salva_modifiche(self):
-        print("f")
         if self.txtNome.text() != "" and self.txtCognome.text() != "" and self.txtCodiceFiscale.text() != "" \
                 and self.txtMansione.text() != "":
             try:
