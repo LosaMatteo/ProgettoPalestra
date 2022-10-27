@@ -7,7 +7,6 @@ from Cliente.Model.Cliente import Cliente
 class Prenotazione(object):
     lista_prenotazioni = []
     objMetodi = Metodi()
-    objCliente = Cliente()
 
     def __init__(self, username="", sala="", data="", orario=""):
         if username != "":
