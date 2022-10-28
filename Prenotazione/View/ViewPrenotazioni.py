@@ -1,7 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Prenotazione.View.ViewPrenotazioneZumba import ViewPrenotazioneZumba
-from Prenotazione.View.ViewPrenotazioneFunzionale import ViewPrenotazioneFunzionale
-from Prenotazione.View.ViewPrenotazioneSalaPesi import ViewPrenotazioneSalaPesi
+from Prenotazione.View.ViewPrenotazioneSala import ViewPrenotazioneSala
 
 
 class ViewPrenotazioni(object):
@@ -12,19 +10,21 @@ class ViewPrenotazioni(object):
 
     def open_prenotazione_sala_pesi(self):
         self.prenotazione_sala_pesi = QtWidgets.QMainWindow()
-        self.ui = ViewPrenotazioneSalaPesi(self.username, self.aggiorna_prenotazioni)
+        self.ui = ViewPrenotazioneSala(self.username, {"lun", "mar", "mer", "gio", "ven", "sab"},
+                                       10, "Sala Pesi", self.aggiorna_prenotazioni)
         self.ui.setupUi(self.prenotazione_sala_pesi)
         self.prenotazione_sala_pesi.show()
 
     def open_prenotazione_funzionale(self):
         self.prenotazione_funzionale = QtWidgets.QMainWindow()
-        self.ui = ViewPrenotazioneFunzionale(self.username, self.aggiorna_prenotazioni)
+        self.ui = ViewPrenotazioneSala(self.username, {"mar", "mer", "ven"}, 15, "Allenamento Functional",
+                                       self.aggiorna_prenotazioni)
         self.ui.setupUi(self.prenotazione_funzionale)
         self.prenotazione_funzionale.show()
 
     def open_prenotazione_zumba(self):
         self.prenotazione_zumba = QtWidgets.QMainWindow()
-        self.ui = ViewPrenotazioneZumba(self.username, self.aggiorna_prenotazioni)
+        self.ui = ViewPrenotazioneSala(self.username, {"gio", "ven"}, 20, "Zumba", self.aggiorna_prenotazioni)
         self.ui.setupUi(self.prenotazione_zumba)
         self.prenotazione_zumba.show()
 

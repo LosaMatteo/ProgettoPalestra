@@ -5,14 +5,14 @@ from Prenotazione.Model.Prenotazione import Prenotazione
 from Prenotazione.Controller.ControllerPrenotazione import ControllerPrenotazione
 
 
-class ViewPrenotazioneFunzionale(object):
-    giorni_attivi = {"mar", "mer", "ven"}
-    numero_massimo = 15
-    sala = "Allenamento Functional"
+class ViewPrenotazioneSala(object):
     objMetodi = Metodi()
 
-    def __init__(self, username, aggiorna_prenotazioni):
+    def __init__(self, username, giorni_attivi, numero_massimo, sala, aggiorna_prenotazioni):
         self.username = username
+        self.giorni_attivi = giorni_attivi
+        self.numero_massimo = numero_massimo
+        self.sala = sala
         self.aggiorna_prenotazioni = aggiorna_prenotazioni
         self.controller = ControllerPrenotazione()
 
@@ -62,12 +62,17 @@ class ViewPrenotazioneFunzionale(object):
         self.lblTesto_3 = QtWidgets.QLabel(Form)
         self.lblTesto_3.setGeometry(QtCore.QRect(19, 15, 311, 61))
         self.lblTesto_3.setObjectName("lblTesto_3")
-        self.lblImmagineFunctional = QtWidgets.QLabel(Form)
-        self.lblImmagineFunctional.setGeometry(QtCore.QRect(370, 10, 91, 71))
-        self.lblImmagineFunctional.setText("")
-        self.lblImmagineFunctional.setPixmap(QtGui.QPixmap(".\\IconaAllFunzionale.png"))
-        self.lblImmagineFunctional.setScaledContents(True)
-        self.lblImmagineFunctional.setObjectName("lblImmagineFunctional")
+        self.lblImmagineSala = QtWidgets.QLabel(Form)
+        self.lblImmagineSala.setGeometry(QtCore.QRect(370, 10, 91, 71))
+        self.lblImmagineSala.setText("")
+        if self.sala == "Allenamento Functional":
+            self.lblImmagineSala.setPixmap(QtGui.QPixmap(".\\IconaAllFunzionale.png"))
+        elif self.sala == "Sala Pesi":
+            self.lblImmagineSala.setPixmap(QtGui.QPixmap("./Resources/images/pngPrenotazioni/IconaSalaPesi1.png"))
+        elif self.sala == "Zumba":
+            self.lblImmagineSala.setPixmap(QtGui.QPixmap(".\\IconaZumba.png"))
+        self.lblImmagineSala.setScaledContents(True)
+        self.lblImmagineSala.setObjectName("lblImmagineSala")
         self.popupcalendar = QtWidgets.QCalendarWidget(Form)
         self.popupcalendar.setGeometry(QtCore.QRect(10, 120, 421, 251))
         self.popupcalendar.setFirstDayOfWeek(QtCore.Qt.Monday)
@@ -91,13 +96,31 @@ class ViewPrenotazioneFunzionale(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Prenotazioni functional"))
+        Form.setWindowTitle(_translate("Form", "Prenotazioni " + self.sala))
         self.btnPrenota.setText(_translate("Form", "Prenota ora"))
         self.lblInfo.setText(_translate("Form", "Seleziona data:"))
         self.lblTesto_1.setText(_translate("Form", "Seleziona orario:"))
         self.lblTesto_2.setText(_translate("Form", "Posti liberi:"))
-        self.lblTesto_3.setText(_translate("Form",
+        if self.sala == "Allenamento Functional":
+            self.lblTesto_3.setText(_translate("Form",
                                         "<html><head/><body><p>Le lezioni di Allenamento Funzionale si svolgono<br/>martedì, mercoledì e venerdì.<br/>Dalle ore 15:30 e dalle 17:00. <br/></p></body></html>"))
-        self.cmbOrario.setItemText(0, _translate("Form", "15:30-17:00"))
-        self.cmbOrario.setItemText(1, _translate("Form", "17:00-18:30"))
+            self.cmbOrario.setItemText(0, _translate("Form", "15:30-17:00"))
+            self.cmbOrario.setItemText(1, _translate("Form", "17:00-18:30"))
+        elif self.sala == "Sala Pesi":
+            self.lblTesto_3.setText(_translate("Form",
+                                        "<html><head/><body><p>La Sala Pesi è aperta dal lunedì al sabato. <br/>La prenotazione è valida per 1 ora e 30 minuti dall\'ora selezionata.</p></body></html>"))
+            self.cmbOrario.setItemText(0, _translate("Form", "09:30-11:00"))
+            self.cmbOrario.setItemText(1, _translate("Form", "11:00-12:30"))
+            self.cmbOrario.setItemText(2, _translate("Form", "12:30-14:00"))
+            self.cmbOrario.setItemText(3, _translate("Form", "14:00-15:30"))
+            self.cmbOrario.setItemText(4, _translate("Form", "15:30-17:00"))
+            self.cmbOrario.setItemText(5, _translate("Form", "17:00-18:30"))
+            self.cmbOrario.setItemText(6, _translate("Form", "18:30-20:00"))
+            self.cmbOrario.setItemText(7, _translate("Form", "20:00-21:30"))
+            self.cmbOrario.setItemText(8, _translate("Form", "21:30-23:00"))
+        elif self.sala == "Zumba":
+            self.lblTesto_3.setText(_translate("Form",
+                                      "<html><head/><body><p>Le lezioni si svolgono il giovedì e il venerdì</p><p>dalle ore 18:00 e dalle ore 19:30.</p></body></html>"))
+            self.cmbOrario.setItemText(0, _translate("Form", "18:00-19:30"))
+            self.cmbOrario.setItemText(1, _translate("Form", "19:30-21:00"))
 
