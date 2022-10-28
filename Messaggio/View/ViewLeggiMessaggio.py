@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtWidgets
 from Messaggio.View.ViewRispostaMessaggio import ViewRispostaMessaggio
-from Messaggio.Controller.ControllerMessaggio import ControllerMessaggio
 
 
 class ViewLeggiMessaggio(object):
@@ -9,7 +8,6 @@ class ViewLeggiMessaggio(object):
         self.username = username
         self.messaggio = messaggio
         self.aggiorna_messaggi = aggiorna_messaggi
-        self.controller = ControllerMessaggio()
 
     def apriCasellaMessaggi(self):
         self.risposta_messaggio = QtWidgets.QMainWindow()
