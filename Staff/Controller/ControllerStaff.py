@@ -36,13 +36,6 @@ class ControllerStaff(object):
     def controlla_unicita(self, codice_fiscale):
         return self.model.controlla_unicita(codice_fiscale)
 
-    def get_lista_turni_by_id(self, data, staff, lista):
-        lista_turni = []
-        for elem in lista:
-            if data == elem.data and staff == self.objMetodi.get_id(elem.staff):
-                lista_turni.append(elem)
-        return lista_turni
-
     def get_lista_id_staff(self):
         return self.model.get_lista_id_staff()
 
