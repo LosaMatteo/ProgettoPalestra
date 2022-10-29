@@ -54,7 +54,7 @@ class Staff(object):
         return self.objMetodi.get_oggetto_from_id(id, self.lista_staff)
 
     def get_lista_id_staff(self):
-        return self.objMetodi.get_lista(self.lista_staff)
+        return self.objMetodi.get_lista_id(self.lista_staff)
 
     def controlla_unicita(self, codice_fiscale):
         for elem in self.lista_staff:

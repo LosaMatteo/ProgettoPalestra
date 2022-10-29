@@ -67,7 +67,7 @@ class Cliente(object):
         self.scrivi_lista_clienti(percorso)
 
     def get_lista_id_clienti(self):
-        return self.objMetodi.get_lista(self.lista_clienti)
+        return self.objMetodi.get_lista_id(self.lista_clienti)
 
     def get_sesso_cliente(self, cliente):
         return cliente.sesso

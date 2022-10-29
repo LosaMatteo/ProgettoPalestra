@@ -25,7 +25,7 @@ class Metodi(object):
 
 
     @staticmethod
-    def get_lista(lista):
+    def get_lista_id(lista):
         vett = []
         for elem in lista:
             vett.append(elem.nome + elem.cognome)
@@ -95,13 +95,6 @@ class Metodi(object):
         for elem in str:
             indirizzo += elem
         return indirizzo
-
-    @staticmethod
-    def rimuovi_turno_da_file(username, percorso, lista_turni):
-        filehandler = open(percorso, 'wb')
-        for elem in lista_turni:
-            if elem.staff != username:
-                pickle.dump(elem, filehandler)
 
     def show_popup_ok(self, str):
         self.msg = QMessageBox()
