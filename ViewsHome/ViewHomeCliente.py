@@ -28,7 +28,8 @@ class ViewHomeCliente(object):
     def aggiungi_prenotazione(self):
         self.lstPrenotazioni.clear()
         for elem in self.lista_prenotazioni():
-            self.lstPrenotazioni.addItem("data: " + elem.data.toString("dd/MM/yyyy") + " orario: " +
+            if elem.username == self.username:
+                self.lstPrenotazioni.addItem("data: " + elem.data.toString("dd/MM/yyyy") + " orario: " +
                                          elem.orario + " " + elem.sala)
 
     def open_info_dieta(self):
