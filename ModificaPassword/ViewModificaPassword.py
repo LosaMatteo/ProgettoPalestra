@@ -4,6 +4,7 @@ from Metodi.Metodi import Metodi
 from Cliente.Controller.ControllerCliente import ControllerCliente
 from Staff.Controller.ControllerStaff import ControllerStaff
 
+
 class ViewModificaPassword(object):
     objMetodi = Metodi()
     controller_cliente = ControllerCliente()
@@ -16,7 +17,7 @@ class ViewModificaPassword(object):
 
     def salva_modifiche_password(self):
         esito_operazione = self.imposta_password(self.cmbTipo.currentText(), self.txtPassword_1.text(),
-                                                            self.txtPassword_2.text(), self.username)
+                                                 self.txtPassword_2.text(), self.username)
         if esito_operazione == 0:
             self.objMetodi.show_popup_ok("Salvataggio password è andato a buon fine.")
             self.finestre.close()
@@ -61,8 +62,6 @@ class ViewModificaPassword(object):
 
     def nascondi_password(self):
         self.txtPassword_2.setEchoMode(QtWidgets.QLineEdit.Password)
-
-
 
     def setupUi(self, MainWindow):
         self.finestre = MainWindow

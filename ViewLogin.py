@@ -277,7 +277,6 @@ class ViewLogin(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     ATHENEO = QtWidgets.QMainWindow()
     ui = ViewLogin()
