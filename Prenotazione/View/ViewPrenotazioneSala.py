@@ -35,9 +35,6 @@ class ViewPrenotazioneSala(object):
                 self.controller.get_posti_disponibili(self.sala, self.popupcalendar.selectedDate(),
                                                       self.cmbOrario.currentText()))
 
-    def elimina_vecchie_prenotazioni(self):
-        self.controller.pulisci_prenotazioni()
-
     def setupUi(self, Form):
         self.prenotazione_funzionale = Form
         Form.setObjectName("Form")
@@ -92,7 +89,6 @@ class ViewPrenotazioneSala(object):
         self.cmbOrario.activated[str].connect(self.combobox_attive)
         self.popupcalendar.clicked.connect(self.combobox_attive)
         self.popupcalendar.setMaximumDate(QDate.currentDate().addMonths(1))
-        self.elimina_vecchie_prenotazioni()
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

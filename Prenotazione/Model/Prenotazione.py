@@ -26,7 +26,9 @@ class Prenotazione(object):
     def scrivi_lista_prenotazioni(self, percorso):
         self.objMetodi.scrivi_su_file(percorso, self.lista_prenotazioni)
 
-    def get_lista_prenotazioni(self):
+    def get_lista_prenotazioni(self, percorso):
+        if self.lista_prenotazioni is not None:
+            self.elimina_vecchie_prenotazioni(percorso)
         return self.lista_prenotazioni
 
     def get_posti_disponibili(self, sala, data, ora):

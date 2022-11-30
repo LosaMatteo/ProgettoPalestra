@@ -22,11 +22,8 @@ class ControllerPrenotazione(object):
     def controlla_apertura(self, data_selezionata, giorni_attivi):
         return self.model.controlla_apertura(data_selezionata, giorni_attivi)
 
-    def pulisci_prenotazioni(self):
-        self.model.elimina_vecchie_prenotazioni(self.percorso)
-
     def get_lista_prenotazioni(self):
-        return self.model.get_lista_prenotazioni()
+        return self.model.get_lista_prenotazioni(self.percorso)
 
 
 
