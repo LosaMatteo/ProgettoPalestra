@@ -48,6 +48,7 @@ class Cliente(object):
 
     def set_abbonamento_cliente(self, cliente, abbonamento):
         cliente.abbonamento = abbonamento
+        del abbonamento
 
     def get_cliente_from_id(self, id):
         return self.objMetodi.get_oggetto_from_id_spazio(id, self.lista_clienti)
