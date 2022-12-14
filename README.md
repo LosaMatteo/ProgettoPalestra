@@ -1,1 +1,1 @@
-Documentazione in allegato: Presentazione Progetto Ingegneria del Software.pdf
+Documentazione in allegato: vedi Presentazione Progetto Ingegneria del Software.pdf.
