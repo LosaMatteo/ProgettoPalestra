@@ -492,6 +492,7 @@ class ViewHomeCliente(object):
         self.btnAggiorna.clicked.connect(self.aggiungi_prenotazione)
         self.btnAggiornaMessaggi.clicked.connect(self.visualizza_messaggi)
 
+
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Bentornato, " + self.username))

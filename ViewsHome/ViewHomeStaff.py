@@ -34,6 +34,7 @@ class ViewHomeStaff(object):
                 self.listWidget_dieta.addItem(x)
         self.listWidget_esercizi.hide()
         self.listWidget_dati.hide()
+        self.lblPreferenze.hide()
 
     def apri_dieta(self):
         try:
@@ -52,6 +53,7 @@ class ViewHomeStaff(object):
     def visualizza_esercizi(self):
         self.listWidget_esercizi.show()
         self.listWidget_esercizi.clear()
+        self.lblPreferenze.show()
         oggetto_scheda_preferiti = \
             self.lista_preferenze(self.listWidget_allenamento.currentItem().text().replace(" ", ""))
         if oggetto_scheda_preferiti != 0:
@@ -139,7 +141,7 @@ class ViewHomeStaff(object):
         self.txtBmi.hide()
         self.txtFabbisogno.hide()
 
-    def appari_dieta(self):
+    def mostra_dieta(self):
         self.listWidget_dati.show()
         self.label_8.show()
         self.label_7.show()
@@ -155,7 +157,7 @@ class ViewHomeStaff(object):
         self.txtFabbisogno.clear()
         self.nascondi_dieta()
         if oggetto_dati != 0:
-            self.appari_dieta()
+            self.mostra_dieta()
             self.txtBmi.setText(oggetto_dati.bmi)
             self.txtPesoForma.setText(oggetto_dati.peso_ideale)
             self.txtFabbisogno.setText(oggetto_dati.fabbisogno)
@@ -178,6 +180,10 @@ class ViewHomeStaff(object):
         self.listWidget_esercizi.setGeometry(QtCore.QRect(320, 70, 291, 171))
         self.listWidget_esercizi.setAcceptDrops(False)
         self.listWidget_esercizi.setObjectName("listWidget_2")
+        self.lblPreferenze = QtWidgets.QLabel(self.page)
+        self.lblPreferenze.setGeometry(QtCore.QRect(320, 50, 130, 16))
+        self.lblPreferenze.setText("")
+        self.lblPreferenze.setObjectName("lblPreferenze")
         self.btnCreaScheda = QtWidgets.QPushButton(self.page)
         self.btnCreaScheda.setGeometry(QtCore.QRect(412, 370, 251, 28))
         self.btnCreaScheda.setObjectName("pushButton_2")
@@ -373,6 +379,7 @@ class ViewHomeStaff(object):
         self.btnApriDieta.clicked.connect(self.apri_dieta)
         self.btnAggiornaMex.clicked.connect(self.visualizza_messaggi)
 
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Istruttore " + self.username))
@@ -380,6 +387,7 @@ class ViewHomeStaff(object):
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "Allenamento"))
         self.label.setText(_translate("MainWindow", "Il tuo orario lavorativo:"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), _translate("MainWindow", "Orario"))
+        self.lblPreferenze.setText(_translate("MainWindow", "Preferenze esercizi"))
         self.label_7.setText(_translate("MainWindow", "FABBISOGNO"))
         self.label_8.setText(_translate("MainWindow", "PESO FORMA:"))
         self.label_9.setText(_translate("MainWindow", "BMI:"))

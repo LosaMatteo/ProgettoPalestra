@@ -371,6 +371,7 @@ class ViewHomeAdmin(object):
         self.btnAggiornaPersonale.clicked.connect(self.aggiorna_staff)
         self.btnAggiornaAttrezzi.clicked.connect(self.aggiorna_attrezzi)
         self.btnAggiornaMessaggi.clicked.connect(self.visualizza_messaggi)
+        self.tabWidget.currentChanged.connect(self.visualizza_messaggi)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

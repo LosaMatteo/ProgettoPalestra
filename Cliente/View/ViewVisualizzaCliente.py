@@ -37,8 +37,8 @@ class ViewVisualizzaCliente(object):
                 oggetto_cliente = self.controller.get_cliente_from_id(self.username)
                 if oggetto_cliente.nome == self.txtNome.text() and oggetto_cliente.cognome == self.txtCognome.text() and \
                         oggetto_cliente.sesso == self.cmbSesso.currentText() and \
-                        oggetto_cliente.data_di_nascita == self.txtDataDiNascita.date() and \
-                        oggetto_cliente.luogo_di_nascita == self.txtLuogoDiNascita.text() and \
+                        oggetto_cliente.data_nascita == self.txtDataDiNascita.date() and \
+                        oggetto_cliente.luogo_nascita == self.txtLuogoDiNascita.text() and \
                         oggetto_cliente.codice_fiscale == self.txtCodiceFiscale.text() and \
                         oggetto_cliente.abbonamento.data_iscrizione == self.dtdDataIscrizione.date() and \
                         oggetto_cliente.abbonamento.data_certificato_medico == self.dtdScadenzaCertMedico.date() and \
@@ -49,8 +49,8 @@ class ViewVisualizzaCliente(object):
                     oggetto_cliente.nome = self.txtNome.text()
                     oggetto_cliente.cognome = self.txtCognome.text()
                     oggetto_cliente.sesso = self.cmbSesso.currentText()
-                    oggetto_cliente.data_di_nascita = self.txtDataDiNascita.date()
-                    oggetto_cliente.luogo_di_nascita = self.txtLuogoDiNascita.text()
+                    oggetto_cliente.data_nascita = self.txtDataDiNascita.date()
+                    oggetto_cliente.luogo_nascita = self.txtLuogoDiNascita.text()
                     oggetto_cliente.codice_fiscale = self.txtCodiceFiscale.text()
 
                     oggetto_cliente.abbonamento.data_iscrizione = self.dtdDataIscrizione.date()
